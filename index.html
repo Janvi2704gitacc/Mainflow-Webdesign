@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusClean Laundry</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Arial', sans-serif;
+    }
+    header {
+        background: #2D909F;
+        color: white;
+        padding: 1rem;
+    }
+
+    .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    nav ul {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+    }
+
+    nav a {
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+    nav a:hover {
+        color: #3498db;
+    }
+
+    .hero {
+        background: #FFE45C;
+        padding: 4rem 1rem;
+        text-align: center;
+    }
+
+    .hero-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .hero-text {
+        flex: 1 1 300px;
+    }
+
+    .hero-image {
+        flex: 1 1 300px;
+        max-width: 700px;
+    }
+
+    .hero-image img {
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    .cta-button {
+        display: inline-block;
+        background: #3498db;
+        color: white;
+        padding: 1rem 2rem;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: bold;
+        margin-top: 1.5rem;
+        transition: transform 0.3s, background 0.3s;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    .features {
+        background: #ffffff;
+        padding: 4rem 1rem;
+    }
+
+    .features-grid {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        padding: 1rem;
+    }
+
+    .feature-card {
+        text-align: center;
+        padding: 2rem;
+        border-radius: 10px;
+        background: #f8f9fa;
+        transition: transform 0.3s ease;
+    }
+
+    .feature-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .feature-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .cta-button:hover {
+        background: #2980b9;
+        transform: translateY(-2px);
+    }
+
+    .cta-secondary {
+        background: #2ecc71;
+        margin-left: 1rem;
+    }
+
+    .services {
+        padding: 4rem 1rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        justify-content: center;
+    }
+
+    .service-card {
+        flex: 1 1 300px;
+        background: #68CAB6;
+        padding: 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .booking {
+        padding: 2rem 1rem;
+        background: #fff;
+        text-align: center;
+    }
+
+    select {
+        padding: 0.5rem;
+        margin: 1rem;
+        width: 200px;
+    }
+
+    form button[type="submit"],
+    .schedule-button {
+        padding: 1.2rem 3rem;
+        font-size: 1.2rem;
+        background: #2ecc71;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: transform 0.3s, background 0.3s;
+        width: 100%;
+        max-width: 300px;
+        margin: 1rem auto;
+        display: block;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    form button[type="submit"]:hover,
+    .schedule-button:hover {
+        background: #27ae60;
+        transform: scale(1.05);
+    }
+
+    @media (max-width: 768px) {
+        nav ul {
+            flex-direction: column;
+            text-align: center;
+            gap: 1rem;
+        }
+
+        .hero-content {
+            flex-direction: column;
+        }
+    }
+
+    @media (max-width: 480px) {
+        form button[type="submit"] {
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+        }
+
+        .nav-container {
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .service-card {
+            flex-basis: 100%;
+        }
+    }
+
+    footer {
+        background: #2D909F;
+        color: white;
+        padding: 2rem 1rem;
+        margin-top: 2rem;
+    }
+
+    .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        justify-content: space-between;
+    }
+
+    .footer-section {
+        flex: 1 1 250px;
+    }
+
+    .footer-legal {
+        text-align: center;
+        margin-top: 2rem;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .legal-links {
+        display: flex;
+        gap: 1.5rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: 1rem;
+    }
+
+    .legal-links a {
+        color: #95a5a6;
+        text-decoration: none;
+        font-size: 0.9rem;
+    }
+
+    .legal-links a:hover {
+        color: #3498db;
+        text-decoration: underline;
+    }
+
+    .copyright {
+        font-size: 0.8rem;
+        color: #7f8c8d;
+    }
+        </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <h1>CampusClean 🧺</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#features">Contact</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+<section class="hero" id="home">
+    <div class="hero-content">
+        <div class="hero-text">
+            <h2>Stress-Free Laundry for Busy Students</h2>
+            <p>24/7 Service • Free Pickup & Delivery • Student Discounts</p>
+            <a href="#booking" class="cta-button">Get Started Now</a>
+        </div>
+        <div class="hero-image">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMQkkLeChCzeGaAiezl-5NV0son6fj25O9RQ&s" alt="Laundry service">
+        </div>
+    </div>
+</section>
+        <section class="features">
+    <div class="features-grid">
+        <div class="feature-card">
+            <div class="feature-icon">🕒</div>
+            <h3>24/7 Service</h3>
+            <p>Access our services anytime - perfect for late-night study sessions</p>
+        </div>
+        
+        <div class="feature-card">
+            <div class="feature-icon">🎓</div>
+            <h3>Student Discount</h3>
+            <p>15% off all services with valid student ID</p>
+        </div>
+        
+        <div class="feature-card">
+            <div class="feature-icon">🌱</div>
+            <h3>Eco-Friendly</h3>
+            <p>Biodegradable detergents and energy-efficient machines</p>
+        </div>
+        
+        <div class="feature-card">
+            <div class="feature-icon">🚚</div>
+            <h3>Free Pickup/Delivery</h3>
+            <p>On-campus collection and return to your dorm</p>
+        </div>
+        
+        <div class="feature-card">
+            <div class="feature-icon">🔒</div>
+            <h3>Secure Handling</h3>
+            <p>Individual laundry bags and RFID tracking</p>
+        </div>
+        
+        <div class="feature-card">
+            <div class="feature-icon">💯</div>
+            <h3>Satisfaction Guarantee</h3>
+            <p>Free rewash if you're not completely happy</p>
+        </div>
+    </div>
+</section>
+<section class="services" id="services">
+        <h2>Our Services</h2>
+        <div class="grid">
+            <div class="service-card">
+    <h3>🧼 Wash & Fold</h3>
+    <p>Standard service with 24-hour turnaround</p>
+    <a href="#pricing" class="cta-button cta-secondary">From @ 240/kg</a>
+</div>
+            </div>
+            <div class="service-card">
+                <h3>👔 Premium Pressing</h3>
+                <p>Special care for formal wear and delicate fabrics</p>
+            </div>
+            <div class="service-card">
+                <h3>🛏️ Bulk Bedding</h3>
+                <p>Comforters, sheets, and pillowcases</p>
+            </div>
+        </div>
+    </section>
+<section class="booking">
+        <h3>Book Now</h3>
+        <section class="booking">
+    <h5>Ready to Save Time?</h5>
+    <a href="#contact" class="cta-button">Book First Free Pickup</a>
+</section>
+    <form>
+        <select id="service-type">
+            <option value="wash-fold">Wash & Fold</option>
+            <option value="pressing">Premium Pressing</option>
+            <option value="bedding">Bulk Bedding</option>
+        </select>
+        <br>
+        <button type="submit" class="schedule-button">
+            🚚 Schedule Pickup Now
+        </button>
+    </form>
+</section>
+             <footer>
+       <div class="footer-content">
+        <div class="footer-section">
+            <h4>Contact</h4>
+            <p>📞 (555) 123-4567</p>
+            <p>📧 help@campusclean.com</p>
+        </div>
+        </div>
+ <div class="footer-legal">
+        <div class="legal-links">
+            <a href="/privacy-policy.html">Privacy Policy</a>
+            <a href="/terms-of-service.html">Terms of Service</a>
+            <a href="/faq.html">FAQ</a>
+        </div>
+        <div class="copyright">
+            © 2023 CampusClean Laundry Services. All rights reserved.<br>
+            Student Discount Program verified through .edu email addresses.
+        </div>
+    </div>
+    </footer>
+</body>
+</html>
